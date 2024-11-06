@@ -70,6 +70,7 @@ ln -s "$sites_available_dir/pve2" "$sites_enabled_dir/pve2"
 ln -s "$sites_available_dir/pve3" "$sites_enabled_dir/pve3"
 echo "Sites pve1, pve2 et pve3 activés."
 
+sudo sed -i '/\.lan/d' /etc/hosts
 echo "172.16.1.1 pve1.ocean.$prenom.lan" | sudo tee -a /etc/hosts
 echo "172.16.1.1 pve2.ocean.$prenom.lan" | sudo tee -a /etc/hosts
 echo "172.16.1.1 pve3.ocean.$prenom.lan" | sudo tee -a /etc/hosts
