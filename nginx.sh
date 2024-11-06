@@ -37,3 +37,11 @@ if [ -f "$source_file" ]; then
 else
     echo "Le fichier source pve1 n'existe pas dans le répertoire actuel."
 fi
+
+read -p "Entrez votre prénom pour l'inclure dans le nom de domaine : " prenom
+
+sed -i "s/stagiaire/$prenom/g" "$source_file"
+sed -i "s/stagiaire/$prenom/g" "$destination_file_pve2"
+sed -i "s/stagiaire/$prenom/g" "$destination_file_pve3"
+
+echo "Le prénom $prenom a été ajouté dans les noms de domaine des fichiers pve1, pve2 et pve3."
