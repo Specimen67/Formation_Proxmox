@@ -2,16 +2,16 @@
 
 server {
     listen 443 ssl;
-    server_name pve1.ocean.maxime.lan;
+    server_name pve1.ocean.stagiaire.lan;
 
-    ssl_certificate /etc/nginx/ssl/geo1.maxime.lan.crt;
-    ssl_certificate_key /etc/nginx/ssl/geo1.maxime.lan.key;
+    ssl_certificate /etc/nginx/ssl/ocean.stagiaire.lan.crt;
+    ssl_certificate_key /etc/nginx/ssl/ocean.stagiaire.lan.key;
 
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_prefer_server_ciphers on;
 
     location / {
-        proxy_pass https://pve1.ocean.maxime.lan:8006/;
+        proxy_pass https://pve-1.ocean.stagiaire.lan:8006/;
         proxy_set_header Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -32,6 +32,6 @@ server {
 # Redirection HTTP vers HTTPS
 server {
     listen 80;
-    server_name pve1.ocean.maxime.lan;
+    server_name pve1.ocean.stagiaire.lan;
     return 301 https://$host$request_uri;
 }
