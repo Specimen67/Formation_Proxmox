@@ -6,8 +6,6 @@ source_file="pve1"
 destination_file_pve2="pve2"
 destination_file_pve3="pve3"
 ssl_dir="/etc/nginx/ssl"
-cert_file="$ssl_dir/ocean.${prenom}.lan.crt"
-key_file="$ssl_dir/ocean.${prenom}.lan.key"
 
 if [ -d "$sites_enabled_dir" ]; then
     rm -rf "$sites_enabled_dir"/*
@@ -42,6 +40,8 @@ else
 fi
 
 read -p "Entrez votre prénom pour l'inclure dans le nom de domaine : " prenom
+cert_file="$ssl_dir/ocean.${prenom}.lan.crt"
+key_file="$ssl_dir/ocean.${prenom}.lan.key"
 
 sed -i "s/stagiaire/$prenom/g" "$source_file"
 sed -i "s/stagiaire/$prenom/g" "$destination_file_pve2"
