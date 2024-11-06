@@ -6,8 +6,8 @@ source_file="pve1"
 destination_file_pve2="pve2"
 destination_file_pve3="pve3"
 ssl_dir="/etc/nginx/ssl"
-cert_file="$ssl_dir/ocean.$prenom.lan.crt"
-key_file="$ssl_dir/ocean.$prenom.lan.key"
+cert_file="$ssl_dir/ocean.${prenom}.lan.crt"
+key_file="$ssl_dir/ocean.${prenom}.lan.key"
 
 if [ -d "$sites_enabled_dir" ]; then
     rm -rf "$sites_enabled_dir"/*
@@ -54,7 +54,7 @@ mkdir -p "$ssl_dir"
 openssl req -new -newkey rsa:2048 -days 365 -nodes -x509 \
     -keyout "$key_file" \
     -out "$cert_file" \
-    -subj "/C=FR/ST=formation/L=proxmox/O=Dawan/OU=IT/CN=ocean.$prenom.lan"
+    -subj "/C=FR/ST=Ile-de-France/L=Paris/O=Entreprise/OU=IT/CN=ocean.${prenom}.lan"
 
 echo "Certificats SSL générés :"
 echo " - Certificat : $cert_file"
