@@ -1,0 +1,26 @@
+;
+; BIND data file for ocean.stagiaire.lan zone
+;
+$TTL    604800
+@       IN      SOA     ns.ocean.stagiaire.lan. root.ocean.stagiaire.lan. (
+                        2023100903         ; Serial
+                        604800             ; Refresh
+                        86400              ; Retry
+                        2419200            ; Expire
+                        604800 )           ; Negative Cache TTL
+;
+@       IN      NS      ns.ocean.stagiaire.lan.
+@       IN      A       172.16.254.1          ; Adresse IP du routeur
+
+ns      IN      A       172.16.254.1          ; Adresse IP du serveur DNS (ici le routeur)
+
+; Entrées pour les serveurs Proxmox
+nginx1  IN      A       172.16.255.1
+pve1   IN      A       172.16.255.10         ; Adresse IP de pve1
+pve2   IN      A       172.16.255.11         ; Adresse IP de pve2
+pve3   IN      A       172.16.255.12         ; Adresse IP de pve3
+pbs1   IN      A       172.16.255.13
+px1    IN      CNAME   nginx1
+px2    IN      CNAME   nginx1
+px3    IN      CNAME   nginx1
+pbx4   IN      CNAME   nginx1
