@@ -15,7 +15,7 @@ network:
           via: 10.0.0.1
         - to: 172.16.255.0/24  
           via: 10.0.0.2
-    ens38:
+    ens36:
       dhcp4: false
       addresses:
         - 172.16.253.1/24

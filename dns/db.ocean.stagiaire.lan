@@ -15,11 +15,11 @@ $TTL    604800
 ns      IN      A       172.16.254.1          ; Adresse IP du serveur DNS (ici le routeur)
 
 ; Entrées pour les serveurs Proxmox
-nginx1  IN      A       172.16.255.1
-px1   IN      A       172.16.255.10         ; Adresse IP de px1
-px2   IN      A       172.16.255.11         ; Adresse IP de px2
-px3   IN      A       172.16.255.12         ; Adresse IP de px3
-pbx1   IN      A       172.16.255.13
+nginx1  IN      A       172.16.254.1
+px1   IN      A       172.16.254.10         ; Adresse IP de px1
+px2   IN      A       172.16.254.11         ; Adresse IP de px2
+px3   IN      A       172.16.254.12         ; Adresse IP de px3
+pbx1   IN      A       172.16.254.13
 pve1    IN      CNAME   nginx1
 pve2    IN      CNAME   nginx1
 pve3    IN      CNAME   nginx1
