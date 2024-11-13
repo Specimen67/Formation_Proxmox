@@ -4,16 +4,6 @@ if [[ -z "$prenom" ]]; then
     exit 1
 fi
 
-echo "Choisissez le domaine à configurer :"
-select domaine in ocean mountain nassan; do
-    if [[ -n "$domaine" ]]; then
-        echo "Domaine sélectionné : $domaine"
-        break
-    else
-        echo "Choix invalide. Veuillez sélectionner un domaine valide."
-    fi
-done
-
 # Demander le domaine à configurer
 echo "Quel domaine voulez-vous configurer ?"
 echo "[1] ocean"
@@ -45,6 +35,6 @@ sed -i "s/stagiaire/$prenom/g" "$db_file"
 apt update && apt install -y bind9
 
 cp "$named_file" "$bind_directory"
-cp "$db_file" "$bind_directory$db_Renamed"
+cp "$db_file" "$bind_directory$db_renamed"
 
 systemctl restart bind9

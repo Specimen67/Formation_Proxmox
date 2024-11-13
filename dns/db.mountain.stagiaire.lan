@@ -16,11 +16,11 @@ ns      IN      A       172.16.254.1          ; Adresse IP du serveur DNS (ici l
 
 ; Entrées pour les serveurs Proxmox
 nginx2  IN      A       172.16.255.1
-pve4   IN      A       172.16.255.10         ; Adresse IP de pve1
-pve5   IN      A       172.16.255.11         ; Adresse IP de pve2
-pve6   IN      A       172.16.255.12         ; Adresse IP de pve3
-pbs2   IN      A       172.16.255.13
-px4    IN      CNAME   nginx2
-px5    IN      CNAME   nginx2
-px6    IN      CNAME   nginx2
-pbx2   IN      CNAME   nginx2
+px4   IN      A       172.16.255.10         ; Adresse IP de px1
+px5   IN      A       172.16.255.11         ; Adresse IP de px2
+px6   IN      A       172.16.255.12         ; Adresse IP de px3
+pbx2   IN      A       172.16.255.13
+pve4    IN      CNAME   nginx2
+pve5    IN      CNAME   nginx2
+pve6    IN      CNAME   nginx2
+pbs2   IN      CNAME   nginx2
