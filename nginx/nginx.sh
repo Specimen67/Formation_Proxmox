@@ -1,5 +1,21 @@
 #!/bin/bash
+read -p "Entrez votre prénom pour l'inclure dans le FQDN: " prenom
+echo "Quel domaine voulez-vous configurer ?"
+echo "[1] ocean"
+echo "[2] mountain"
+read -p "Entrez le numéro correspondant au domaine : " choix
 
+# Associer le choix au nom du domaine
+case "$choix" in
+    1) domaine="ocean" ;;
+    2) domaine="mountain" ;;
+    *) 
+        echo "Choix invalide. Veuillez entrer 1 ou 2."
+        exit 1
+        ;;
+esac
+cert_file="$ssl_dir/ocean.${prenom}.lan.crt"
+key_file="$ssl_dir/ocean.${prenom}.lan.key"
 sites_enabled_dir="/etc/nginx/sites-enabled"
 sites_available_dir="/etc/nginx/sites-available"
 source_file="pve1"
@@ -39,9 +55,7 @@ else
     echo "Le fichier source pve1 n'existe pas dans le répertoire actuel."
 fi
 
-read -p "Entrez votre prénom pour l'inclure dans le nom de domaine : " prenom
-cert_file="$ssl_dir/ocean.${prenom}.lan.crt"
-key_file="$ssl_dir/ocean.${prenom}.lan.key"
+
 
 sed -i "s/stagiaire/$prenom/g" "$source_file"
 sed -i "s/stagiaire/$prenom/g" "$destination_file_pve2"
