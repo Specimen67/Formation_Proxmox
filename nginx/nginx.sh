@@ -64,6 +64,9 @@ fi
 sed -i "s/stagiaire/$prenom/g" "$source_file"
 sed -i "s/stagiaire/$prenom/g" "$destination_file_pve2"
 sed -i "s/stagiaire/$prenom/g" "$destination_file_pve3"
+sed -i "s/domaine/$domaine/g" "$source_file"
+sed -i "s/domaine/$domaine/g" "$destination_file_pve2"
+sed -i "s/domaine/$domaine/g" "$destination_file_pve3"
 
 echo "Le prénom $prenom a été ajouté dans les noms de domaine des fichiers pve1, pve2 et pve3."
 rm -rf /etc/nginx/ssl
